@@ -6,10 +6,18 @@ services:
       context: .
       args:
         UID: "${UID}"
-    user: "node"
+    user: "${UID}:${UID}"
     volumes:
       - '.:/usr/src/app'
       - 'node_modules:/usr/src/app/node_modules'
+    ports:
+      - '3000:3000'
 
 volumes:
   node_modules:
+
+networks:
+  default:
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.host_binding_ipv4: "${BIND_ADDRESS:-0.0.0.0}"

@@ -9,4 +9,4 @@ clean:
 	rm -rf node_modules/
 
 serve: build
-	$(COMPOSE) run -u $(UID) --rm app
+	$(COMPOSE) up app
