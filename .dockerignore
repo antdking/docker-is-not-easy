@@ -1,0 +1,9 @@
+# ignore all hidden files
+.*
+**/.*
+
+# ignore yarn specific files
+node_modules/
+build/
+yarn-debug.log*
+yarn-error.log*
