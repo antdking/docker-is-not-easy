@@ -2,9 +2,11 @@ version: '3.7'
 
 services:
   app:
-    image: node:10.15-alpine
-    command: sh -c 'yarn && yarn start'
-    working_dir: '/usr/src/app'
+    build:
+      context: .
+      args:
+        UID: "${UID}"
+    user: "node"
     volumes:
       - '.:/usr/src/app'
       - 'node_modules:/usr/src/app/node_modules'
